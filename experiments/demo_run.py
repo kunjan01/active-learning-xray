@@ -23,10 +23,10 @@ from src.baseline import run_random_baseline
 
 
 def run_demo(data_root: str):
-    """Run a quick demo: 1 seed, budget=50 (2 rounds), mc_passes=5."""
+    """Run a quick demo: 1 seed, budget=150 (2 rounds), mc_passes=5."""
     print("=" * 60)
     print("  QUICK DEMO - Active Learning vs Random")
-    print("  Config: 1 seed, budget=50, k=25, mc_passes=5")
+    print("  Config: 1 seed, budget=150, k=25, mc_passes=5")
     print("  Estimated time: 5-10 minutes on CPU")
     print("=" * 60)
 
@@ -39,7 +39,7 @@ def run_demo(data_root: str):
         data_root=data_root,
         seed=42,
         acquisition_fn_name="bald",
-        budget=50,        # Only 2 rounds (100 -> 125 -> 150)
+        budget=150,        # 2 rounds (100 -> 125 -> 150)
         k=25,
         epochs_per_round=5,  # Fewer epochs for speed
         mc_passes=5,         # Fewer MC passes for speed
@@ -52,7 +52,7 @@ def run_demo(data_root: str):
     random_history = run_random_baseline(
         data_root=data_root,
         seed=42,
-        budget=50,
+        budget=150,
         k=25,
         epochs_per_round=5,
         save_dir=None,
